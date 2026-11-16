@@ -1,0 +1,91 @@
+// pendampingan.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendampingan Usaha – MMS Tegal Barat | BTPN Syariah</title>
+  <meta name="description" content="Pendampingan kelompok dan individu BTPN Syariah: pelatihan usaha, kesehatan, dan karakter bagi nasabah sentra di Tegal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dist/output.css" />
+</head>
+<body>
+  <div id="nav"></div><div id="banner"></div>
+
+  <main>
+    <!-- CARA KERJA SENTRA -->
+    <section class="py-16 md:py-20">
+      <div class="wrap">
+        <div id="hSentra"></div>
+        <div id="alur" class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
+        <div class="reveal card mt-6 flex flex-col gap-4 border-brand/30 bg-brand-tint sm:flex-row sm:items-center">
+          <div class="icon-box bg-white font-display text-lg font-bold">?</div>
+          <p class="text-[15px] leading-relaxed" id="bankir"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KELOMPOK -->
+    <section class="bg-slate-50 py-16 md:py-20">
+      <div class="wrap grid items-center gap-10 lg:grid-cols-2">
+        <div class="reveal h-72 overflow-hidden rounded-3xl bg-white md:h-96" id="imgKel"></div>
+        <div class="reveal">
+          <p class="eyebrow">Program 1</p><h2 class="h-sec" id="tKel"></h2>
+          <span class="chip mt-4">Setiap 2 minggu sekali di sentra</span>
+          <p class="lead" id="pKel"></p>
+          <p class="mt-6 text-sm font-bold">Contoh topik:</p>
+          <ul id="topik" class="mt-2 flex flex-wrap gap-2"></ul>
+          <div class="mt-6 border-l-4 border-brand pl-4 text-[15px] leading-relaxed" id="lKel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDIVIDU -->
+    <section class="py-16 md:py-20">
+      <div class="wrap">
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="reveal lg:order-2 h-72 overflow-hidden rounded-3xl bg-brand-tint md:h-96" id="imgInd"></div>
+          <div class="reveal lg:order-1">
+            <p class="eyebrow">Program 2</p><h2 class="h-sec" id="tInd"></h2><p class="lead" id="pInd"></p>
+          </div>
+        </div>
+        <div id="program" class="mt-10 grid gap-5 md:grid-cols-2"></div>
+      </div>
+    </section>
+
+    <!-- BDKS -->
+    <section class="bg-slate-50 py-16 md:py-20">
+      <div class="wrap">
+        <div id="hBdks"></div>
+        <div id="bdks" class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
+        <div class="reveal mt-8 text-center"><a href="produk.html" class="btn">Lihat produk pembiayaan</a></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script src="js/data.js"></script><script src="js/layout.js"></script>
+  <script>
+    renderLayout("pendampingan.html");
+    pageBanner("Pendampingan Usaha", "Modal saja tidak cukup. Nasabah BTPN Syariah mendapat pendampingan agar usaha tumbuh dan kebiasaan baik terbentuk.");
+
+    $("hSentra").innerHTML = secHead("Cara Kerja Sentra", GRAMEEN.judul, GRAMEEN.isi);
+    $("alur").innerHTML = GRAMEEN.alur.map(([t, d], i) => `<div class="reveal card"><div class="icon-box font-display text-lg font-bold">${i + 1}</div><h3 class="mt-4 font-display font-bold text-brand">${t}</h3><p class="mt-2 text-sm leading-relaxed">${d}</p></div>`).join("");
+    $("bankir").innerHTML = `<b>Bankir pemberdaya:</b> ${GLOSARIUM.find((g) => g[0] === "Bankir pemberdaya")[1]}`;
+
+    const P = PENDAMPINGAN;
+    $("imgKel").innerHTML = pic("pendampingkelompok.png", P.kelompok.judul, "h-full w-full object-cover", "kelompok");
+    $("tKel").textContent = P.kelompok.judul; $("pKel").textContent = P.kelompok.isi; $("lKel").textContent = P.kelompok.lanjut;
+    $("topik").innerHTML = P.kelompok.contoh.map((c) => `<li class="chip">${c}</li>`).join("");
+
+    $("imgInd").innerHTML = pic("pendampingindividu.png", P.individu.judul, "h-full w-full object-cover", "individu");
+    $("tInd").textContent = P.individu.judul; $("pInd").textContent = P.individu.isi;
+    $("program").innerHTML = P.individu.program.map(([t, d], i) => `<div class="reveal card"><span class="chip">Program ${i + 1}</span><h3 class="mt-3 font-display text-xl font-bold text-brand">${t}</h3><p class="mt-2 text-[15px] leading-relaxed">${d}</p></div>`).join("");
+
+    $("hBdks").innerHTML = secHead("Karakter Nasabah", "Empat kebiasaan baik: BDKS.", "Pendampingan juga membangun karakter dan budaya baik yang membantu usaha dan keluarga tumbuh.");
+    $("bdks").innerHTML = TENTANG.bdks.map(([t, d]) => `<div class="reveal card text-center"><div class="icon-box mx-auto font-display text-xl font-bold">${t[0]}</div><h3 class="mt-4 font-display font-bold text-brand">${t}</h3><p class="mt-2 text-sm leading-relaxed">${d}</p></div>`).join("");
+
+    reveal();
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMS Tegal Barat – Pembiayaan Syariah | BTPN Syariah</title>
+  <meta name="description" content="MMS Tegal Barat melayani Tegal Barat, Tegal Selatan, dan Margadana. Pembiayaan modal usaha tanpa agunan mulai Rp 2 juta dengan pendampingan usaha." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dist/output.css" />
+</head>
+<body>
+  <div id="nav"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="bg-white">
+      <div class="wrap grid items-center gap-10 py-12 md:py-20 lg:grid-cols-2">
+        <div>
+          <span class="chip">Pembiayaan Syariah BTPN Syariah</span>
+          <h1 class="mt-5 font-display text-3xl font-bold leading-tight text-brand md:text-5xl">Modal usaha untuk pelaku usaha di Tegal Barat, Tegal Selatan, dan Margadana.</h1>
+          <p class="lead">Pembiayaan tanpa agunan, pendampingan usaha, dan layanan lewat aplikasi Sitepat. Dilayani langsung oleh petugas MMS Tegal Barat.</p>
+          <div class="mt-8 flex flex-wrap gap-3"><a href="produk.html" class="btn">Lihat Produk Pembiayaan</a><a id="telHero" class="btn-o"></a></div>
+        </div>
+        <div class="relative h-72 overflow-hidden rounded-3xl bg-brand-tint md:h-[440px]" id="heroImg"></div>
+      </div>
+    </section>
+
+    <section class="bg-ink text-white"><div id="ringkas" class="wrap grid grid-cols-2 gap-y-6 py-9 md:grid-cols-4"></div></section>
+
+    <!-- TENTANG + WILAYAH -->
+    <section class="py-20 md:py-24">
+      <div class="wrap grid items-start gap-12 lg:grid-cols-2">
+        <div class="reveal">
+          <p class="eyebrow">Tentang MMS Tegal Barat</p>
+          <h2 class="h-sec">Dekat dengan nasabah, hadir di sentra.</h2>
+          <p class="lead" id="mms"></p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2" id="visimisi"></div>
+        </div>
+        <div class="space-y-5">
+          <div class="reveal card bg-brand-tint">
+            <p class="eyebrow">Wilayah layanan</p>
+            <ul id="wilayah" class="flex flex-wrap gap-2"></ul>
+            <p class="mt-4 text-sm leading-relaxed">Untuk menghubungi petugas Anda langsung, gunakan nomor yang tercantum di brosur dari petugas. Informasi umum: layanan konsumen <b id="callTxt"></b> (24 jam).</p>
+          </div>
+          <div class="reveal card"><p class="eyebrow">Kantor cabang terdekat</p><h3 class="font-display font-bold text-brand" id="cNama"></h3><p class="mt-2 text-sm leading-relaxed" id="cAlamat"></p></div>
+          <div class="reveal card"><p class="eyebrow">Perjalanan BTPN Syariah</p><ol id="sejarah" class="mt-3 space-y-4"></ol></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUK -->
+    <section class="bg-slate-50 py-20 md:py-24">
+      <div class="wrap"><div id="hProduk"></div><div id="produkCards" class="mt-10 grid gap-6 lg:grid-cols-2"></div></div>
+    </section>
+
+    <!-- TABUNGAN -->
+    <section class="py-20 md:py-24">
+      <div class="wrap"><div id="hTab"></div><div id="tabBox" class="mt-10 grid gap-6 md:grid-cols-2"></div><p class="reveal mt-4 text-sm text-ink/70">Berlaku untuk pembiayaan kelompok (TPS Kelompok). TPSIK tidak memakai UPS maupun penahanan rekening.</p></div>
+    </section>
+
+    <!-- CARA KERJA KELOMPOK -->
+    <section class="bg-slate-50 py-20 md:py-24">
+      <div class="wrap"><div id="hGrameen"></div><div id="alur" class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div></div>
+    </section>
+
+    <!-- LANGKAH + SIMULASI -->
+    <section class="py-20 md:py-24">
+      <div class="wrap grid gap-12 lg:grid-cols-5">
+        <div class="lg:col-span-3"><div id="hLangkah"></div><ol id="langkah" class="mt-10 space-y-5"></ol></div>
+        <div class="reveal lg:col-span-2"><div class="card sticky top-24 border-brand/30">
+          <p class="eyebrow">Contoh hitungan</p><h3 class="font-display text-xl font-bold text-brand">Pembiayaan kelompok Rp 2 juta</h3>
+          <p class="mt-2 text-sm text-ink/80">Modal Rp 2.000.000 selama 12 bulan, margin 30% flat, angsuran 2 mingguan sebanyak 25 kali.</p>
+          <dl id="simulasi" class="mt-5 divide-y divide-slate-200 text-[15px]"></dl>
+          <p class="mt-4 text-xs leading-relaxed text-ink/70">Contoh ilustrasi. Hitungan sebenarnya mengikuti akad Anda.</p>
+          <a href="produk.html#kalkulator" class="btn-o mt-5 w-full">Coba hitung sendiri</a>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- PENDAMPINGAN -->
+    <section class="bg-slate-50 py-20 md:py-24">
+      <div class="wrap"><div id="hPend"></div><div id="pend" class="mt-12 grid gap-6 md:grid-cols-2"></div></div>
+    </section>
+
+    <!-- SITEPAT -->
+    <section class="bg-brand-tint py-20 md:py-24">
+      <div class="wrap grid items-center gap-12 lg:grid-cols-2">
+        <div class="reveal h-72 overflow-hidden rounded-3xl bg-white md:h-96" id="sitepatImg"></div>
+        <div class="reveal"><p class="eyebrow">Aplikasi Sitepat</p><h2 class="h-sec">Urus pembiayaan dari ponsel.</h2><p class="lead" id="sitepatIntro"></p>
+          <div id="sitepatFitur" class="mt-6 grid gap-3 sm:grid-cols-2"></div>
+          <div class="mt-8 flex flex-wrap gap-3"><a id="playBtn" target="_blank" rel="noopener" class="btn">Unduh di Google Play</a><a href="produk.html#sitepat" class="btn-o">Biaya dan fitur lengkap</a></div></div>
+      </div>
+    </section>
+
+    <!-- LITERASI -->
+    <section class="py-20 md:py-24">
+      <div class="wrap"><div id="hLit"></div><div id="tips" class="mt-12 grid gap-5 md:grid-cols-3"></div>
+        <div class="reveal mt-8 text-center"><a href="literasi.html" class="btn-o">Buka halaman literasi keuangan</a></div></div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script src="js/data.js"></script><script src="js/layout.js"></script>
+  <script>
+    renderLayout("index.html");
+    $("telHero").href = "tel:" + SITE.callTel;
+    $("telHero").innerHTML = `${I.phone} ${SITE.call} (24 jam)`;
+    $("callTxt").textContent = SITE.call;
+    $("heroImg").innerHTML = pic("hero.png", "Nasabah dan bankir pemberdaya BTPN Syariah", "h-full w-full object-cover") +
+      `<div class="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 p-4 shadow-lg sm:right-auto sm:max-w-xs"><p class="text-xs font-bold uppercase tracking-wider text-ink/60">Pengajuan mulai dari</p><p class="font-display text-xl font-bold text-brand">Rp 2 juta</p><p class="text-sm">tanpa agunan, tanpa uang muka, tanpa biaya administrasi</p></div>`;
+
+    $("ringkas").innerHTML = TEPAT.ringkas.map(([t, v, s]) => `<div class="px-3 md:border-l md:border-white/20 md:first:border-0"><p class="text-[11px] font-bold uppercase tracking-widest text-white/70">${t}</p><p class="mt-1 font-display text-xl font-bold md:text-2xl">${v}</p><p class="text-xs text-white/70">${s}</p></div>`).join("");
+
+    $("mms").textContent = TENTANG.mms;
+    $("visimisi").innerHTML = [["Visi", TENTANG.visi], ["Misi", TENTANG.misi]].map(([t, d]) => `<div class="border-l-4 border-brand pl-4"><h3 class="font-display font-bold text-brand">${t}</h3><p class="mt-1 text-sm leading-relaxed">${d}</p></div>`).join("");
+    $("wilayah").innerHTML = SITE.wilayah.map((w) => `<li class="chip !px-4 !py-2 text-sm">Kec. ${w}</li>`).join("");
+    $("cNama").textContent = SITE.cabang.nama; $("cAlamat").textContent = SITE.cabang.alamat;
+    $("sejarah").innerHTML = TENTANG.sejarah.map(([y, t]) => `<li class="flex gap-4"><span class="w-24 shrink-0 font-display text-sm font-bold text-brand">${y}</span><span class="text-sm leading-relaxed">${t}</span></li>`).join("");
+
+    // Produk
+    $("hProduk").innerHTML = secHead("Produk Pembiayaan", "Dua pilihan sesuai tahap usaha Anda.", "Pembiayaan kelompok untuk nasabah sentra, dan TPSIK untuk nasabah terpilih yang usahanya sudah berkembang.");
+    const prod = (t, u, x, pts, h) => `<article class="reveal card flex flex-col"><span class="chip self-start">${u}</span><h3 class="mt-4 font-display text-xl font-bold text-brand">${t}</h3><p class="mt-2 text-[15px] leading-relaxed">${x}</p><div class="mt-5 flex-1">${checkList(pts)}</div><a href="${h}" class="btn mt-6">Lihat detail</a></article>`;
+    $("produkCards").innerHTML =
+      prod(TEPAT.nama, "Untuk nasabah sentra", "Modal usaha bersama kelompok, dicicil tiap 2 minggu di Pertemuan Rutin Sentra.", ["Pengajuan mulai Rp 2 juta", "Tanpa agunan, uang muka, dan biaya administrasi", "Ada pendampingan usaha dan tabungan"], "produk.html#kelompok") +
+      prod("Tepat Pembiayaan Syariah Individu – Komunitas (TPSIK)", "Untuk nasabah terpilih", "Untuk nasabah yang usahanya sudah berkembang dan siap memakai aplikasi. Ditawarkan oleh petugas.", ["Plafon Rp 8 juta – Rp 100 juta, tenor 12 – 36 bulan", "Bayar bulanan lewat transfer, tanpa PRS", "Bebas UPS dan tanpa penahanan (hold) rekening"], "produk.html#tpsik");
+
+    // Tabungan
+    const S = TEPAT.simulasi;
+    $("hTab").innerHTML = secHead("Soal Tabungan", "Di pembiayaan kelompok, Anda meminjam sambil menabung.", "Ini bagian penting yang perlu Anda ketahui sebelum mengajukan.");
+    $("tabBox").innerHTML =
+      `<div class="reveal card"><p class="eyebrow">Saat pembiayaan cair</p><p class="font-display text-3xl font-bold text-brand">${rupiah(S.plafon * 0.1)}</p><p class="mt-3 text-[15px] leading-relaxed">${TEPAT.tabungan.awal}</p></div>
+       <div class="reveal card"><p class="eyebrow">Di setiap pertemuan (PRS)</p><p class="font-display text-3xl font-bold text-brand">${rupiah(S.angsuran)} + ${rupiah(S.plafon * 0.008)} = ${rupiah(S.angsuran + S.plafon * 0.008)}</p><p class="mt-3 text-[15px] leading-relaxed">${TEPAT.tabungan.rutin}</p></div>`;
+
+    $("hGrameen").innerHTML = secHead("Cara Kerja Kelompok", GRAMEEN.judul, GRAMEEN.isi);
+    $("alur").innerHTML = GRAMEEN.alur.map(([t, d], i) => `<div class="reveal card"><div class="icon-box font-display text-lg font-bold">${i + 1}</div><h3 class="mt-4 font-display font-bold text-brand">${t}</h3><p class="mt-2 text-sm leading-relaxed">${d}</p></div>`).join("");
+
+    $("hLangkah").innerHTML = secHead("Cara Mengajukan", "Lima langkah mendapatkan pembiayaan kelompok.", "Petugas kami akan mendampingi di setiap langkah.");
+    $("langkah").innerHTML = TEPAT.langkah.map(([t, d], i) => `<li class="reveal flex gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand font-display font-bold text-white">${i + 1}</span><div class="pt-0.5"><h3 class="font-bold">${t}</h3><p class="mt-1 text-[15px] leading-relaxed text-ink/80">${d}</p></div></li>`).join("");
+
+    const tab = S.plafon * 0.008;
+    $("simulasi").innerHTML = [["Modal yang diterima", rupiah(S.plafon)], ["Tabungan awal (10%), Anda setor sendiri", rupiah(S.plafon * 0.1)], ["Angsuran tiap 2 minggu", rupiah(S.angsuran)], ["Tabungan tiap 2 minggu (0,8%)", rupiah(tab)], ["Total setoran tiap 2 minggu", rupiah(S.angsuran + tab)]]
+      .map(([a, b], i, arr) => `<div class="flex justify-between gap-3 py-3 ${i === arr.length - 1 ? "font-bold text-brand" : ""}"><dt>${a}</dt><dd class="font-bold">${b}</dd></div>`).join("");
+
+    $("hPend").innerHTML = secHead("Pendampingan", "Bukan hanya modal, Anda juga dibimbing.", "Setiap nasabah mendapat pendampingan usaha dari bankir pemberdaya.");
+    const P = PENDAMPINGAN;
+    $("pend").innerHTML = [[P.kelompok, "pendampingkelompok.png", "kelompok", `<ul class="mt-3 flex flex-wrap gap-2">${P.kelompok.contoh.map((c) => `<li class="chip">${c}</li>`).join("")}</ul>`], [P.individu, "pendampingindividu.png", "individu", ""]]
+      .map(([x, f, ill, extra]) => `<article class="reveal card overflow-hidden !p-0"><div class="h-52 bg-brand-tint">${pic(f, x.judul, "h-full w-full object-cover", ill)}</div><div class="p-6"><h3 class="font-display text-xl font-bold text-brand">${x.judul}</h3><p class="mt-2 text-[15px] leading-relaxed">${x.isi}</p>${extra}</div></article>`).join("");
+
+    $("sitepatImg").innerHTML = pic("sitepatmobileview.webp", "Tampilan aplikasi Sitepat di ponsel", "h-full w-full object-contain p-4", "sitepat");
+    $("sitepatIntro").textContent = SITEPAT.intro; $("playBtn").href = SITE.playstore;
+    $("sitepatFitur").innerHTML = SITEPAT.fitur.map(([t, l]) => `<div class="rounded-xl bg-white p-4"><p class="font-bold text-brand">${t}</p><p class="mt-1 text-xs leading-relaxed text-ink/80">${l.join(" · ")}</p></div>`).join("");
+
+    $("hLit").innerHTML = secHead("Literasi Keuangan", "Tips mengelola uang usaha.", "Beberapa kebiasaan sederhana yang membantu usaha tumbuh dan pembiayaan lancar.");
+    $("tips").innerHTML = TIPS.slice(0, 3).map(([t, d]) => `<div class="reveal card"><h3 class="font-display font-bold text-brand">${t}</h3><p class="mt-2 text-[15px] leading-relaxed">${d}</p></div>`).join("");
+
+    reveal();
+  </script>
+</body>
+</html>
