@@ -1,10 +1,9 @@
-// literasi.html
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Literasi Keuangan – MMS Tegal Barat | BTPN Syariah</title>
-  <meta name="description" content="Belajar menghitung cicilan, memahami akad murabahah, mengatur uang usaha, dan menjaga keamanan akun. Panduan sederhana untuk nasabah BTPN Syariah." />
+  <meta name="description" content="Belajar membaca cicilan, memahami akad murabahah, mengatur uang usaha, dan menjaga keamanan akun. Panduan sederhana untuk nasabah BTPN Syariah." />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="dist/output.css" />
@@ -13,69 +12,39 @@
   <div id="nav"></div><div id="banner"></div>
 
   <main>
-    <!-- AKAD -->
-    <section class="py-16 md:py-20">
-      <div class="wrap">
-        <div id="hAkad"></div>
-        <div id="akad" class="mt-10 grid gap-5 md:grid-cols-3"></div>
-        <div class="reveal mt-6">
-          <div class="flex gap-3 rounded-xl border border-brand/30 bg-brand-tint p-4 text-sm leading-relaxed"><span id="icInfo"></span><p><b>Margin flat artinya tetap.</b> Keuntungan bank dihitung sekali di awal dari modal yang Anda terima, dan tidak berubah sampai lunas. Jadi cicilan Anda sama setiap 2 minggu.</p></div>
+    <section class="py-16 md:py-20"><div class="wrap">
+      <div id="hAkad"></div><div id="akad" class="mt-10 grid gap-5 md:grid-cols-3"></div>
+      <div class="reveal mt-6"><div class="flex gap-3 rounded-xl border border-brand/30 bg-brand-tint p-4 text-sm leading-relaxed"><span id="icInfo"></span><p><b>Angsuran tetap.</b> Besar angsuran sudah dihitung dan disepakati di akad. Jumlahnya sama setiap 2 minggu sampai lunas, tidak naik-turun.</p></div></div>
+    </div></section>
+
+    <section class="bg-slate-50 py-16 md:py-20"><div class="wrap grid items-start gap-10 lg:grid-cols-2">
+      <div><div id="hHitung"></div><ol id="langkah" class="mt-8 space-y-5"></ol></div>
+      <div class="reveal card border-brand/40">
+        <p class="eyebrow">Contoh nyata</p><h3 class="font-display text-xl font-bold text-brand" id="cTitle"></h3>
+        <p class="mt-2 text-sm leading-relaxed" id="cDesc"></p>
+        <dl id="cRinci" class="mt-5 divide-y divide-slate-200 text-[15px]"></dl>
+      </div>
+    </div></section>
+
+    <section class="py-16 md:py-20"><div class="wrap grid items-start gap-10 lg:grid-cols-2">
+      <div>
+        <div id="hCek"></div>
+        <div class="reveal card mt-8 space-y-5">
+          <div><label for="untung" class="font-bold">Untung bersih usaha tiap 2 minggu (Rp)</label><input id="untung" type="number" inputmode="numeric" min="0" step="10000" placeholder="contoh: 600000" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold" /></div>
+          <div><label for="rumah" class="font-bold">Kebutuhan rumah tangga tiap 2 minggu (Rp)</label><input id="rumah" type="number" inputmode="numeric" min="0" step="10000" placeholder="contoh: 400000" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold" /></div>
+          <div><label for="cicil" class="font-bold">Angsuran + tabungan tiap 2 minggu (Rp)</label><input id="cicil" type="number" inputmode="numeric" min="0" step="1000" value="120000" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold" /></div>
         </div>
       </div>
-    </section>
+      <div class="reveal card bg-brand-tint lg:mt-[88px]" id="cekHasil" aria-live="polite"></div>
+    </div></section>
 
-    <!-- HITUNG CICILAN -->
-    <section class="bg-slate-50 py-16 md:py-20">
-      <div class="wrap grid items-start gap-10 lg:grid-cols-2">
-        <div>
-          <div id="hHitung"></div>
-          <ol id="langkah" class="mt-8 space-y-5"></ol>
-        </div>
-        <div class="reveal card border-brand/40">
-          <p class="eyebrow">Contoh nyata</p>
-          <h3 class="font-display text-xl font-bold text-brand" id="cTitle"></h3>
-          <p class="mt-2 text-sm leading-relaxed" id="cDesc"></p>
-          <dl id="cRinci" class="mt-5 divide-y divide-slate-200 text-[15px]"></dl>
-        </div>
-      </div>
-    </section>
+    <section class="bg-slate-50 py-16 md:py-20"><div class="wrap">
+      <div id="hGlos"></div>
+      <input id="cari" type="search" placeholder="Cari istilah, misalnya: sentra" class="mt-8 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold md:max-w-md" />
+      <dl id="glos" class="mt-6 grid gap-4 md:grid-cols-2"></dl>
+    </div></section>
 
-    <!-- CEK KEMAMPUAN -->
-    <section class="py-16 md:py-20">
-      <div class="wrap grid items-start gap-10 lg:grid-cols-2">
-        <div>
-          <div id="hCek"></div>
-          <div class="reveal card mt-8 space-y-5">
-            <div><label for="untung" class="font-bold">Untung bersih usaha tiap 2 minggu (Rp)</label><input id="untung" type="number" inputmode="numeric" min="0" step="10000" placeholder="contoh: 600000" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold" /></div>
-            <div><label for="rumah" class="font-bold">Kebutuhan rumah tangga tiap 2 minggu (Rp)</label><input id="rumah" type="number" inputmode="numeric" min="0" step="10000" placeholder="contoh: 400000" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold" /></div>
-            <div><label for="cicil" class="font-bold">Angsuran + tabungan tiap 2 minggu (Rp)</label><input id="cicil" type="number" inputmode="numeric" min="0" step="1000" value="120000" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold" /></div>
-          </div>
-        </div>
-        <div class="reveal card bg-brand-tint lg:mt-[88px]" id="cekHasil" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- GLOSARIUM -->
-    <section class="bg-slate-50 py-16 md:py-20">
-      <div class="wrap">
-        <div id="hGlos"></div>
-        <input id="cari" type="search" placeholder="Cari istilah, misalnya: sentra" class="mt-8 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold md:max-w-md" />
-        <dl id="glos" class="mt-6 grid gap-4 md:grid-cols-2"></dl>
-      </div>
-    </section>
-
-    <!-- TIPS -->
-    <section class="py-16 md:py-20">
-      <div class="wrap"><div id="hTips"></div><div id="tips" class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div></div>
-    </section>
-
-    <!-- KEAMANAN -->
-    <section class="bg-ink py-16 text-white md:py-20">
-      <div class="wrap grid gap-10 lg:grid-cols-2">
-        <div><p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-white/70">Waspada</p><h2 class="font-display text-2xl font-bold md:text-4xl">Jaga akun dan uang Anda.</h2><p class="mt-4 text-base leading-relaxed text-white/85 md:text-lg">Penipuan sering menyamar sebagai petugas atau hadiah. Satu aturan sederhana: rahasia tetap rahasia.</p></div>
-        <ul id="aman" class="space-y-4"></ul>
-      </div>
-    </section>
+    <section class="py-16 md:py-20"><div class="wrap"><div id="hTips"></div><div id="tips" class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div></div></section>
 
     <section class="py-14"><div class="wrap flex flex-wrap items-center justify-between gap-4"><p class="font-display text-xl font-bold text-brand">Sudah paham? Lanjutkan ke produknya.</p><div class="flex flex-wrap gap-3"><a href="produk.html" class="btn">Lihat produk pembiayaan</a><a href="pendampingan.html" class="btn-o">Tentang pendampingan</a></div></div></section>
   </main>
@@ -86,40 +55,36 @@
     renderLayout("literasi.html");
     pageBanner("Literasi Keuangan", "Penjelasan sederhana tentang pembiayaan, cicilan, dan cara mengatur uang usaha supaya Anda tenang saat meminjam.");
 
-    // Akad
     $("icInfo").innerHTML = I.warn;
     $("hAkad").innerHTML = secHead("Memahami Akad", "Pembiayaan ini memakai jual beli (murabahah).", "Harga dan keuntungan bank disepakati sejak awal. Tidak ada bunga yang naik-turun.");
-    $("akad").innerHTML = [["Modal dan margin disepakati", "Sebelum mulai, Anda tahu berapa modal yang diterima dan berapa keuntungan bank."], ["Total tetap sampai lunas", "Jumlah yang harus dibayar sudah pasti sejak akad, tidak berubah di tengah jalan."], ["Dicicil tiap 2 minggu", "Cicilan dibayar saat Pertemuan Rutin Sentra (PRS) bersama kelompok."]]
+    $("akad").innerHTML = [["Disepakati di awal", "Sebelum mulai, Anda tahu berapa modal yang diterima dan berapa angsurannya."], ["Angsuran tetap sampai lunas", "Jumlah yang harus dibayar sudah pasti sejak akad, tidak berubah di tengah jalan."], ["Dicicil tiap 2 minggu", "Cicilan dibayar saat Pertemuan Rutin Sentra (PRS) bersama kelompok."]]
       .map(([t, d], i) => `<div class="reveal card"><div class="icon-box font-display text-lg font-bold">${i + 1}</div><h3 class="mt-4 font-display font-bold text-brand">${t}</h3><p class="mt-2 text-[15px] leading-relaxed">${d}</p></div>`).join("");
 
-    // Hitung cicilan
-    const S = TEPAT.simulasi, untung = S.plafon * S.margin / 100, total = S.plafon + untung;
-    $("hHitung").innerHTML = secHead("Cara Menghitung", "Hitung cicilan dalam 4 langkah.", "Anda bisa mengeceknya sendiri tanpa kalkulator rumit.");
-    $("langkah").innerHTML = [["Hitung keuntungan bank", "Modal × margin. Contoh: Rp 2.000.000 × 30% = Rp 600.000."], ["Jumlahkan jadi total", "Modal + keuntungan. Contoh: Rp 2.000.000 + Rp 600.000 = Rp 2.600.000."], ["Bagi dengan jumlah angsuran", "Total ÷ jumlah angsuran. Contoh: Rp 2.600.000 ÷ 25 kali = Rp 104.000 per 2 minggu."], ["Tambahkan tabungan", "Modal × 0,8%. Contoh: Rp 2.000.000 × 0,8% = Rp 16.000. Total setoran: Rp 104.000 + Rp 16.000 = Rp 120.000 per 2 minggu. Jika sedang hanya mampu membayar angsuran, tetap diterima."]]
+    const S = TEPAT.simulasi, tab = S.plafon * 0.008;
+    $("hHitung").innerHTML = secHead("Cara Membaca Cicilan", "Pahami setoran Anda dalam 4 langkah.", "Anda bisa mengeceknya sendiri tanpa kalkulator rumit.");
+    $("langkah").innerHTML = [["Tentukan modal dan jangka waktu", "Jangka waktunya 1 tahun (25 kali angsuran), 1,5 tahun (37 kali), atau 2 tahun (50 kali), tergantung besar pinjaman."], ["Lihat angsuran di akad", `Angsuran tiap 2 minggu sudah dihitung bank dan tetap sampai lunas. Contoh pinjaman ${rupiah(S.plafon)} untuk 1 tahun: ${rupiah(S.angsuran)}.`], ["Tambahkan tabungan", `Tabungan tiap pertemuan 0,8% dari pinjaman. Contoh: ${rupiah(S.plafon)} × 0,8% = ${rupiah(tab)}.`], ["Jumlahkan setoran", `Angsuran + tabungan. Contoh: ${rupiah(S.angsuran)} + ${rupiah(tab)} = ${rupiah(S.angsuran + tab)} per 2 minggu. Jika sedang hanya mampu membayar angsuran, tetap diterima.`]]
       .map(([t, d], i) => `<li class="reveal flex gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand font-display font-bold text-white">${i + 1}</span><div class="pt-0.5"><h3 class="font-bold">${t}</h3><p class="mt-1 text-[15px] leading-relaxed text-ink/80">${d}</p></div></li>`).join("");
-    $("cTitle").textContent = "Modal Rp 2 juta, 12 bulan";
-    $("cDesc").textContent = `Ibu pemilik ${S.usaha} mengajukan modal ${rupiah(S.plafon)} selama ${S.tenor}, margin ${S.margin}% flat, angsuran 2 mingguan.`;
-    $("cRinci").innerHTML = [["Modal diterima", rupiah(S.plafon)], ["Keuntungan bank", rupiah(untung)], ["Total dibayar", rupiah(total)], ["Jumlah angsuran", S.jumlah + " kali"], ["Angsuran per 2 minggu", rupiah(S.angsuran)], ["Tabungan per 2 minggu (0,8%)", rupiah(S.plafon * 0.008)], ["Total setoran per 2 minggu", rupiah(S.angsuran + S.plafon * 0.008)]]
-    .map(([a, b], i, arr) => `<div class="flex justify-between gap-3 py-3 ${i === arr.length - 1 ? "font-bold text-brand" : ""}"><dt>${a}</dt><dd class="font-bold">${b}</dd></div>`).join("");
+    $("cTitle").textContent = "Pinjaman Rp 2 juta, 1 tahun";
+    $("cDesc").textContent = `Ibu pemilik ${S.usaha} mengajukan pinjaman ${rupiah(S.plafon)} dengan jangka waktu ${S.tenor} (${S.jumlah} kali angsuran, tiap 2 minggu).`;
+    $("cRinci").innerHTML = [["Modal diterima", rupiah(S.plafon)], ["Tabungan awal saat cair (10%)", rupiah(S.plafon * 0.1)], ["Jumlah angsuran", S.jumlah + " kali"], ["Angsuran per 2 minggu", rupiah(S.angsuran)], ["Tabungan per 2 minggu (0,8%)", rupiah(tab)], ["Total setoran per 2 minggu", rupiah(S.angsuran + tab)]]
+      .map(([a, b], i, arr) => `<div class="flex justify-between gap-3 py-3 ${i === arr.length - 1 ? "font-bold text-brand" : ""}"><dt>${a}</dt><dd class="font-bold">${b}</dd></div>`).join("");
 
-    // Cek kemampuan bayar
     $("hCek").innerHTML = secHead("Cek Kemampuan", "Mampukah usaha Anda membayar cicilan?", "Isi angka perkiraan Anda. Alat ini hanya membantu berhitung dan tidak menyimpan data apa pun.");
     function cek() {
       const u = +$("untung").value || 0, r = +$("rumah").value || 0, c = +$("cicil").value || 0, sisa = u - r - c;
       let st, msg;
       if (!u) { st = "text-ink"; msg = "Isi untung bersih usaha untuk melihat hasilnya."; }
-      else if (sisa < 0) { st = "text-red-700"; msg = "Uang Anda belum cukup untuk membayar cicilan sebesar ini. Pertimbangkan modal yang lebih kecil, atau bicarakan dengan petugas."; }
-      else if (sisa < c * 0.25) { st = "text-ink"; msg = "Cukup, tetapi sisanya tipis. Sisihkan dana cadangan dan pertimbangkan modal yang lebih kecil agar lebih aman."; }
+      else if (sisa < 0) { st = "text-red-700"; msg = "Uang Anda belum cukup untuk membayar setoran sebesar ini. Pertimbangkan pinjaman yang lebih kecil, atau bicarakan dengan petugas."; }
+      else if (sisa < c * 0.25) { st = "text-ink"; msg = "Cukup, tetapi sisanya tipis. Sisihkan dana cadangan dan pertimbangkan pinjaman yang lebih kecil agar lebih aman."; }
       else { st = "text-brand"; msg = "Aman. Masih ada sisa setelah cicilan dan kebutuhan rumah. Tetap sisihkan sebagian sebagai tabungan."; }
       $("cekHasil").innerHTML = `<p class="eyebrow">Hasil perhitungan</p>
-        <dl class="divide-y divide-brand/20 text-[15px]">${[["Untung bersih usaha", u], ["Kebutuhan rumah tangga", -r], ["Cicilan", -c]].map(([a, b]) => `<div class="flex justify-between py-3"><dt>${a}</dt><dd class="font-bold">${b < 0 ? "− " : ""}${rupiah(Math.abs(b))}</dd></div>`).join("")}
+        <dl class="divide-y divide-brand/20 text-[15px]">${[["Untung bersih usaha", u], ["Kebutuhan rumah tangga", -r], ["Angsuran + tabungan", -c]].map(([a, b]) => `<div class="flex justify-between py-3"><dt>${a}</dt><dd class="font-bold">${b < 0 ? "− " : ""}${rupiah(Math.abs(b))}</dd></div>`).join("")}
         <div class="flex justify-between py-3 text-lg font-bold"><dt>Sisa</dt><dd class="${st}">${rupiah(sisa)}</dd></div></dl>
         <p class="mt-3 text-[15px] font-semibold leading-relaxed ${st}">${msg}</p>
         <p class="mt-3 text-xs text-ink/70">Perkiraan saja, bukan keputusan persetujuan pembiayaan.</p>`;
     }
     ["untung", "rumah", "cicil"].forEach((id) => $(id).addEventListener("input", cek)); cek();
 
-    // Glosarium
     $("hGlos").innerHTML = secHead("Glosarium", "Istilah yang sering Anda dengar.");
     function glos() {
       const q = $("cari").value.trim().toLowerCase();
@@ -128,11 +93,8 @@
     }
     $("cari").addEventListener("input", glos); glos();
 
-    // Tips + keamanan
     $("hTips").innerHTML = secHead("Tips Praktis", "Kebiasaan kecil yang menjaga usaha tetap sehat.");
     $("tips").innerHTML = TIPS.map(([t, d], i) => `<div class="reveal card"><div class="icon-box font-display text-lg font-bold">${i + 1}</div><h3 class="mt-4 font-display font-bold text-brand">${t}</h3><p class="mt-2 text-[15px] leading-relaxed">${d}</p></div>`).join("");
-    $("aman").innerHTML = ["Jangan berikan kata sandi atau kode OTP kepada siapa pun, termasuk yang mengaku petugas.", "Jangan memakai tanggal lahir atau angka berurutan sebagai kata sandi.", "Jangan klik tautan atau menginstal aplikasi dari pesan yang tidak dikenal. Unduh Sitepat hanya dari Google Play.", `Ragu atau menemukan hal mencurigakan? Hubungi layanan resmi ${SITE.call} (24 jam).`]
-      .map((t) => `<li class="flex gap-3 rounded-xl border border-white/20 p-4 text-[15px] leading-relaxed"><span class="text-white">${I.check.replace("text-brand", "text-white")}</span>${t}</li>`).join("");
 
     reveal();
   </script>

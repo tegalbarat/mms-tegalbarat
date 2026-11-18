@@ -3,141 +3,118 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Produk Pembiayaan – MMS Tegal Barat | BTPN Syariah</title>
-  <meta name="description" content="Tepat Pembiayaan Syariah Kelompok dan TPSIK: syarat, biaya, hitung cicilan, dan aplikasi Sitepat." />
+  <meta name="description" content="Tepat Pembiayaan Syariah Kelompok: pengajuan mulai Rp 2 juta, tanpa agunan, jangka waktu 1 sampai 2 tahun. Hitung setoran Anda di sini." />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="dist/output.css" />
 </head>
 <body>
   <div id="nav"></div><div id="banner"></div>
-
-  <section class="border-b border-slate-200 bg-white"><div class="wrap flex flex-wrap gap-3 py-4" id="tabs"></div></section>
+  <div class="border-b border-slate-200 bg-white"><div id="sub" class="wrap flex gap-2 overflow-x-auto py-3"></div></div>
 
   <main>
-    <div id="panelKel"></div>
-    <div id="panelInd" class="hidden"></div>
+    <section id="ringkasan" class="scroll-mt-24 py-16 md:py-20"><div class="wrap">
+      <div id="hRingkas"></div><div id="ringkas"></div>
+      <div id="dua" class="mt-6 grid gap-6 md:grid-cols-2"></div>
+    </div></section>
 
-    <!-- SITEPAT -->
-    <section id="sitepat" class="scroll-mt-24 bg-brand-tint py-16 md:py-20">
-      <div class="wrap">
-        <div class="grid items-center gap-10 lg:grid-cols-2">
-          <div class="reveal h-80 overflow-hidden rounded-3xl bg-white md:h-[26rem]" id="sitepatImg"></div>
-          <div class="reveal"><p class="eyebrow">Aplikasi Sitepat</p><h2 class="h-sec">Kelola pembiayaan dari ponsel.</h2><p class="lead" id="sitepatIntro"></p><a id="playBtn" target="_blank" rel="noopener" class="btn mt-7">Unduh di Google Play</a></div>
+    <section id="tabungan" class="scroll-mt-24 bg-slate-50 py-16 md:py-20"><div class="wrap">
+      <div id="hTab"></div><div id="tabBox" class="mt-10 grid gap-6 md:grid-cols-2"></div>
+    </div></section>
+
+    <!-- KALKULATOR -->
+    <section id="kalkulator" class="scroll-mt-24 py-16 md:py-20"><div class="wrap">
+      <div id="hHitung"></div>
+      <div class="mt-8 grid items-start gap-8 lg:grid-cols-2">
+        <div class="reveal card space-y-8">
+          <div>
+            <div class="flex items-baseline justify-between"><label for="plafon" class="font-bold">Modal yang dibutuhkan</label><output id="plafonOut" class="font-display text-xl font-bold text-brand"></output></div>
+            <div class="mt-3 flex items-center gap-3">
+              <button id="kurang" type="button" aria-label="Kurangi Rp 1 juta" class="h-11 w-11 shrink-0 rounded-xl border-2 border-brand text-xl font-bold text-brand hover:bg-brand-tint">−</button>
+              <input id="plafon" type="range" min="2" max="100" step="1" value="2" class="w-full accent-brand" />
+              <button id="tambah" type="button" aria-label="Tambah Rp 1 juta" class="h-11 w-11 shrink-0 rounded-xl border-2 border-brand text-xl font-bold text-brand hover:bg-brand-tint">+</button>
+            </div>
+            <div class="mt-1 flex justify-between text-xs text-ink/60"><span>Rp 2 juta</span><span>Rp 100 juta</span></div>
+            <p class="mt-2 text-xs text-ink/70">Pinjaman dalam kelipatan Rp 1 juta.</p>
+          </div>
+          <div>
+            <p class="font-bold">Jangka waktu</p>
+            <div id="tenor" class="mt-3 grid gap-2 sm:grid-cols-3"></div>
+            <p id="tenorInfo" class="mt-3 text-xs leading-relaxed text-ink/70"></p>
+          </div>
         </div>
-        <div id="sitepatFitur" class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
-        <div class="mt-10 grid gap-6 lg:grid-cols-2">
-          <div class="reveal card"><h3 class="font-display text-lg font-bold text-brand">Biaya transaksi</h3><dl id="biaya" class="mt-4 divide-y divide-slate-200 text-[15px]"></dl></div>
-          <div class="reveal card"><h3 class="font-display text-lg font-bold text-brand">Syarat memakai Sitepat</h3><div id="sSyarat" class="mt-4"></div><h3 class="mt-7 font-display text-lg font-bold text-brand">Cara mendaftar</h3><ol id="regis" class="mt-4 space-y-3"></ol></div>
+        <div class="reveal card border-brand/40 bg-brand-tint" aria-live="polite">
+          <p class="eyebrow">Perkiraan setoran</p>
+          <p id="hasil" class="font-display text-4xl font-bold text-brand md:text-5xl"></p>
+          <p class="text-sm font-semibold">setiap 2 minggu (angsuran + tabungan)</p>
+          <dl id="rinci" class="mt-6 divide-y divide-brand/20 text-[15px]"></dl>
+          <p class="mt-5 text-xs leading-relaxed text-ink/70">Perkiraan. Tabungan tiap pertemuan bersifat ajakan sesuai kemampuan: jika hanya mampu membayar angsuran, tetap diterima. Angka pasti tertulis di akad Anda.</p>
         </div>
-        <div class="mt-6 grid gap-6 md:grid-cols-2" id="contoh"></div>
-        <div class="mt-6" id="catatan"></div>
       </div>
-    </section>
+    </div></section>
 
-    <section class="py-10"><div class="wrap" id="disclaimer"></div></section>
+    <section id="syarat" class="scroll-mt-24 bg-slate-50 py-16 md:py-20"><div class="wrap grid gap-10 lg:grid-cols-2">
+      <div id="cSyarat"></div><div id="cLangkah"></div>
+    </div></section>
+
+    <section id="manfaat" class="scroll-mt-24 py-16 md:py-20"><div class="wrap">
+      <div id="hManfaat"></div><div id="manfaatList"></div>
+      <div id="risiko" class="reveal card mt-8 border-brand/40"></div>
+      <div class="mt-8" id="catatan"></div>
+    </div></section>
   </main>
 
   <div id="footer"></div>
   <script src="js/data.js"></script><script src="js/layout.js"></script>
   <script>
     renderLayout("produk.html");
-    pageBanner("Produk Pembiayaan", "Pilih produk sesuai tahap usaha Anda. Semua tanpa agunan dan sesuai prinsip syariah.");
+    pageBanner("Produk Pembiayaan", "Tepat Pembiayaan Syariah – Kelompok: modal usaha tanpa agunan, dicicil setiap 2 minggu bersama sentra.");
 
-    // ===== Komponen kecil =====
-    const sec = (h, bg = "") => `<section class="${bg} py-16 md:py-20"><div class="wrap">${h}</div></section>`;
-    const cards4 = (a) => `<div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">${a.map(([t, v, s]) => `<div class="reveal card text-center"><p class="text-[11px] font-bold uppercase tracking-widest text-ink/60">${t}</p><p class="mt-2 font-display text-lg font-bold text-brand md:text-xl">${v}</p><p class="mt-1 text-xs text-ink/70">${s}</p></div>`).join("")}</div>`;
-    const steps = (a) => `<ol class="mt-8 space-y-5">${a.map(([t, d], i) => `<li class="reveal flex gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand font-display font-bold text-white">${i + 1}</span><div class="pt-0.5"><h3 class="font-bold">${t}</h3><p class="mt-1 text-[15px] leading-relaxed text-ink/80">${d}</p></div></li>`).join("")}</ol>`;
-    const box = (t, h, cls = "") => `<div class="reveal card ${cls}"><h3 class="font-display text-lg font-bold text-brand">${t}</h3><div class="mt-4">${h}</div></div>`;
-    const iconCards = (a) => `<div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">${a.map(([t, d], i) => `<div class="reveal card"><div class="icon-box font-display text-lg font-bold">${i + 1}</div><h3 class="mt-4 font-display font-bold text-brand">${t}</h3><p class="mt-2 text-[15px] leading-relaxed">${d}</p></div>`).join("")}</div>`;
-    const warnList = (a) => a.map((t) => `<p class="flex gap-3 border-b border-slate-100 py-3 text-[15px] leading-relaxed last:border-0">${I.warn}<span>${t}</span></p>`).join("");
-    const pts = (a) => checkList(a.map(([t, d]) => `<b>${t}.</b> ${d}`));
+    $("sub").innerHTML = [["#ringkasan", "Ringkasan"], ["#tabungan", "Tabungan"], ["#kalkulator", "Hitung Cicilan"], ["#syarat", "Syarat & Cara"], ["#manfaat", "Manfaat & Risiko"]]
+      .map(([h, l]) => `<a href="${h}" class="chip shrink-0 !px-4 !py-2 hover:bg-brand hover:text-white">${l}</a>`).join("");
 
-    // ===== Kalkulator generik =====
-    function buildCalc(el, c) {
-      el.innerHTML = `<div class="grid items-start gap-8 lg:grid-cols-2">
-        <div class="reveal card space-y-7">
-          <div><div class="flex items-baseline justify-between"><label class="font-bold">Modal yang dibutuhkan</label><output data-o="p" class="font-display text-xl font-bold text-brand"></output></div><input data-i="p" type="range" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.def}" class="mt-3 w-full accent-brand" /><div class="mt-1 flex justify-between text-xs text-ink/60"><span>${rupiah(c.min)}</span><span>${rupiah(c.max)}</span></div></div>
-          <div><div class="flex items-baseline justify-between"><label class="font-bold">Margin (flat)</label><output data-o="m" class="font-display text-xl font-bold text-brand"></output></div><input data-i="m" type="range" min="25" max="30" step="1" value="30" class="mt-3 w-full accent-brand" /><div class="mt-1 flex justify-between text-xs text-ink/60"><span>25%</span><span>30%</span></div></div>
-          <div><label class="font-bold">Jangka waktu</label><select data-i="b" class="mt-3 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold">${c.tenor.map((t) => `<option value="${t}" ${t === c.tdef ? "selected" : ""}>${t} bulan</option>`).join("")}</select></div>
-        </div>
-        <div class="reveal card border-brand/40 bg-brand-tint"><p class="eyebrow">${c.label}</p><p data-r="hasil" class="font-display text-4xl font-bold text-brand md:text-5xl"></p><p class="text-sm font-semibold">${c.per}</p><dl data-r="rinci" class="mt-6 divide-y divide-brand/20 text-[15px]"></dl><p class="mt-5 text-xs leading-relaxed text-ink/70">${c.catatan}</p></div></div>`;
-      const q = (s) => el.querySelector(s);
-      function run() {
-        const p = +q("[data-i=p]").value, m = +q("[data-i=m]").value, b = +q("[data-i=b]").value, r = c.hitung(p, m, b);
-        q("[data-o=p]").textContent = rupiah(p); q("[data-o=m]").textContent = m + "%"; q("[data-r=hasil]").textContent = rupiah(r.utama);
-        q("[data-r=rinci]").innerHTML = r.rows.map(([a, v]) => `<div class="flex justify-between gap-3 py-3"><dt>${a}</dt><dd class="text-right font-bold">${v}</dd></div>`).join("");
-      }
-      el.querySelectorAll("[data-i]").forEach((i) => i.addEventListener("input", run)); run();
+    const box = (t, h) => `<div class="reveal card"><h3 class="font-display text-lg font-bold text-brand">${t}</h3><div class="mt-4">${h}</div></div>`;
+    $("hRingkas").innerHTML = secHead("Ringkasan Produk", TEPAT.nama, TEPAT.intro);
+    $("ringkas").innerHTML = `<div class="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">${TEPAT.ringkas.map(([t, v, s]) => `<div class="reveal card text-center"><p class="text-[11px] font-bold uppercase tracking-widest text-ink/60">${t}</p><p class="mt-2 font-display text-lg font-bold text-brand md:text-xl">${v}</p><p class="mt-1 text-xs text-ink/70">${s}</p></div>`).join("")}</div>`;
+    $("dua").innerHTML = box("Yang Anda dapatkan", checkList(TEPAT.poin.map(([t, d]) => `<b>${t}.</b> ${d}`))) + box("Jenis fasilitas", checkList(TEPAT.fasilitas));
+
+    $("hTab").innerHTML = secHead("Soal Tabungan", "Anda meminjam sambil menabung.", "Pembiayaan kelompok mengajak nasabah membangun tabungan. Ini penjelasannya.");
+    $("tabBox").innerHTML =
+      `<div class="reveal card"><p class="eyebrow">Saat pembiayaan cair</p><p class="font-display text-3xl font-bold text-brand">10% dari pinjaman</p><p class="mt-3 text-[15px] leading-relaxed">${TEPAT.tabungan.awal}</p></div>
+       <div class="reveal card"><p class="eyebrow">Di setiap pertemuan</p><p class="font-display text-3xl font-bold text-brand">0,8% dari pinjaman</p><p class="mt-3 text-[15px] leading-relaxed">${TEPAT.tabungan.rutin}</p></div>`;
+
+    // ===== Kalkulator =====
+    $("hHitung").innerHTML = secHead("Hitung Cicilan", "Berapa setoran Anda tiap 2 minggu?", "Geser untuk memilih besar pinjaman. Pilihan jangka waktu menyesuaikan otomatis.");
+    let n = 25;
+    const slider = $("plafon");
+    function run() {
+      const p = +slider.value * 1000000, ok = tenorTersedia(p);
+      if (!ok.includes(n)) n = Math.max(...ok.filter((x) => x <= n));
+      $("plafonOut").textContent = rupiah(p);
+      $("tenor").innerHTML = TEPAT.tenor.map((t) => {
+        const on = ok.includes(t.n), sel = t.n === n;
+        return `<button type="button" data-n="${t.n}" ${on ? "" : "disabled"} class="rounded-xl border-2 px-3 py-3 text-left text-sm font-bold transition ${sel ? "border-brand bg-brand text-white" : on ? "border-brand text-brand hover:bg-brand-tint" : "cursor-not-allowed border-slate-200 text-ink/40"}">${t.label}<span class="block text-xs font-medium">${t.n} kali angsuran</span></button>`;
+      }).join("");
+      $("tenor").querySelectorAll("[data-n]:not([disabled])").forEach((b) => (b.onclick = () => { n = +b.dataset.n; run(); }));
+      $("tenorInfo").textContent = p <= 5000000 ? "Pinjaman Rp 2 – 5 juta tersedia untuk jangka waktu 1 tahun." : p <= 20000000 ? "Pinjaman Rp 6 – 20 juta dapat memilih 1 tahun atau 1,5 tahun." : "Pinjaman di atas Rp 20 juta dapat memilih 1 tahun, 1,5 tahun, atau 2 tahun.";
+      const r = hitungKelompok(p, n), t = TEPAT.tenor.find((x) => x.n === n);
+      $("hasil").textContent = rupiah(r.setoran);
+      $("rinci").innerHTML = [["Modal yang diterima", rupiah(p)], ["Jangka waktu", `${t.label} · ${n} kali`], ["Angsuran tiap 2 minggu", rupiah(r.angsuran)], ["Tabungan tiap 2 minggu (0,8%)", rupiah(r.tabungan)], ["Tabungan awal saat cair (10%)", rupiah(r.tabunganAwal)]]
+        .map(([a, b]) => `<div class="flex justify-between gap-3 py-3"><dt>${a}</dt><dd class="text-right font-bold">${b}</dd></div>`).join("");
     }
+    slider.addEventListener("input", run);
+    $("kurang").onclick = () => { slider.value = Math.max(+slider.min, +slider.value - 1); run(); };
+    $("tambah").onclick = () => { slider.value = Math.min(+slider.max, +slider.value + 1); run(); };
+    run();
 
-    // ===== Panel Kelompok =====
-    const S = TEPAT.simulasi;
-    $("panelKel").innerHTML =
-      `<span id="kelompok"></span>` +
-      sec(secHead("Tepat Pembiayaan Syariah – Kelompok", TEPAT.nama, TEPAT.intro) + cards4(TEPAT.ringkas) +
-        `<div class="mt-6 grid gap-6 md:grid-cols-2">${box("Yang Anda dapatkan", pts(TEPAT.poin))}${box("Jenis fasilitas", checkList(TEPAT.fasilitas))}</div>`) +
-      sec(secHead("Soal Tabungan", "Anda meminjam sambil menabung.", "Pembiayaan kelompok mengajak nasabah membangun tabungan. Ini penjelasannya.") +
-        `<div class="mt-10 grid gap-6 md:grid-cols-2">
-          <div class="reveal card"><p class="eyebrow">Saat pembiayaan cair</p><p class="font-display text-3xl font-bold text-brand">10% dari pinjaman</p><p class="mt-3 text-[15px] leading-relaxed">${TEPAT.tabungan.awal}</p></div>
-          <div class="reveal card"><p class="eyebrow">Di setiap pertemuan</p><p class="font-display text-3xl font-bold text-brand">0,8% dari pinjaman</p><p class="mt-3 text-[15px] leading-relaxed">${TEPAT.tabungan.rutin}</p></div></div>`, "bg-slate-50") +
-      `<span id="kalkulator"></span>` +
-      sec(secHead("Hitung Cicilan", "Berapa setoran Anda tiap 2 minggu?", "Geser untuk melihat perkiraan angsuran dan tabungan. Membantu Anda menimbang kemampuan sebelum mengajukan.") + `<div id="kCalc" class="mt-8"></div>`) +
-      sec(`<div class="grid gap-10 lg:grid-cols-2"><div>${secHead("Syarat", "Siapa yang dapat mengajukan?")}<div class="reveal card mt-8">${checkList(TEPAT.syarat)}</div></div><div>${secHead("Cara Mengajukan", "Lima langkah sampai pembiayaan cair.")}${steps(TEPAT.langkah)}</div></div>`, "bg-slate-50") +
-      sec(secHead("Manfaat & Risiko", "Perlindungan dan pendampingan, bukan hanya modal.") + iconCards(TEPAT.manfaat) +
-        `<div class="reveal card mt-8 border-brand/40"><h3 class="font-display text-lg font-bold text-brand">Hal yang perlu Anda ketahui</h3><div class="mt-4">${warnList(TEPAT.risiko)}</div></div>`);
-
-    buildCalc($("kCalc"), {
-      min: 2000000, max: 100000000, step: 100000, def: S.plafon, tenor: [6, 12, 18, 24], tdef: 12,
-      label: "Perkiraan setoran", per: "setiap 2 minggu (angsuran + tabungan)",
-      hitung: (p, m, b) => { const n = Math.round(b / 12 * 25), ang = Math.ceil(p * (1 + m / 100) / n / 1000) * 1000, tab = Math.round(p * 0.008);
-        return { utama: ang + tab, rows: [["Modal yang diterima", rupiah(p)], [`Keuntungan bank (${m}% flat)`, rupiah(p * m / 100)], ["Angsuran tiap 2 minggu", rupiah(ang)], ["Tabungan tiap 2 minggu (0,8%)", rupiah(tab)], ["Jumlah pertemuan angsuran", n + " kali"], ["Tabungan awal saat cair (10%)", rupiah(p * 0.1)]] }; },
-      catatan: "Perkiraan. Contoh resmi: Rp 2 juta, 12 bulan, margin 30% = Rp 104.000 × 25 kali. Jumlah angsuran untuk tenor lain diskalakan dari contoh itu. Tabungan tiap pertemuan bersifat ajakan sesuai kemampuan. Angka pasti ada di akad Anda.",
-    });
-
-    // ===== Panel TPSIK =====
-    const T = TPSIK;
-    $("panelInd").innerHTML =
-      `<span id="tpsik"></span>` +
-      sec(secHead("TPSIK", T.nama, T.intro) + `<div class="reveal mt-6">${notice(T.catatanTerpilih)}</div>` + cards4(T.ringkas) +
-        `<div class="mt-6 grid gap-6 md:grid-cols-2">${box("Keuntungan untuk Anda", pts(T.poin))}${box("Apakah Anda siap?", checkList(T.siap))}</div>`) +
-      sec(secHead("Cara Mendapatkannya", "Tujuh langkah, hampir semuanya lewat ponsel.", "Dari sisi Anda sebagai nasabah, begini alurnya.") + steps(T.langkah) + `<div class="reveal mt-6">${notice(T.masaJeda)}</div>`, "bg-slate-50") +
-      sec(secHead("Fitur di Sitepat", "Semua dalam satu aplikasi.") + iconCards(T.fitur)) +
-      sec(secHead("Hitung Cicilan", "Perkiraan angsuran bulanan Anda.", "Angsuran dibayar sebulan sekali lewat transfer atau autodebit.") + `<div id="iCalc" class="mt-8"></div>` +
-        `<div class="reveal card mt-6 bg-brand-tint"><h3 class="font-display font-bold text-brand">Contoh ilustrasi dari bank</h3><p class="mt-2 text-[15px] leading-relaxed">${T.simulasiBank}</p></div>`, "bg-slate-50") +
-      sec(`<div class="grid gap-6 lg:grid-cols-2">${box("Biaya", `<dl class="divide-y divide-slate-200 text-[15px]">${T.biaya.map(([a, b]) => `<div class="flex justify-between gap-4 py-3"><dt>${a}</dt><dd class="text-right font-bold">${b}</dd></div>`).join("")}</dl><p class="mt-3 text-xs text-ink/70">${T.biayaCatatan}</p>`)}${box("Syarat", checkList(T.syarat))}</div>
-        <div class="reveal card mt-6 border-brand/40"><h3 class="font-display text-lg font-bold text-brand">Hal yang perlu Anda ketahui</h3><div class="mt-4">${warnList(T.risiko)}</div></div>`);
-
-    buildCalc($("iCalc"), {
-      min: 8000000, max: 100000000, step: 1000000, def: 15000000, tenor: [12, 18, 24, 30, 36], tdef: 18,
-      label: "Perkiraan angsuran", per: "setiap bulan",
-      hitung: (p, m, b) => { const tot = p * (1 + m / 100 * b / 12), ang = Math.ceil(tot / b / 1000) * 1000;
-        return { utama: ang, rows: [["Modal", rupiah(p)], [`Keuntungan bank (${m}% flat/tahun)`, rupiah(tot - p)], ["Total dibayar", rupiah(tot)], ["Jumlah angsuran", b + " kali"]] }; },
-      catatan: "Perkiraan memakai margin flat per tahun (25–30%) sesuai ringkasan produk. Angka pasti, termasuk margin yang berlaku untuk Anda, ditetapkan bank dan tertulis di akad.",
-    });
-
-    // ===== Sitepat =====
-    $("sitepatImg").innerHTML = pic("sitepatmobileview.webp", "Tampilan aplikasi Sitepat di ponsel", "h-full w-full object-contain p-4", "sitepat");
-    $("sitepatIntro").textContent = SITEPAT.intro; $("playBtn").href = SITE.playstore;
-    $("sitepatFitur").innerHTML = SITEPAT.fitur.map(([t, l]) => `<div class="reveal card"><h3 class="font-display font-bold text-brand">${t}</h3><div class="mt-4">${checkList(l)}</div></div>`).join("");
-    $("biaya").innerHTML = SITEPAT.biaya.map(([a, b]) => `<div class="flex justify-between gap-3 py-3"><dt>${a}</dt><dd class="font-bold ${b === "Gratis" ? "text-brand" : ""}">${b}</dd></div>`).join("");
-    $("sSyarat").innerHTML = checkList(SITEPAT.syarat);
-    $("regis").innerHTML = SITEPAT.registrasi.map((t, i) => `<li class="flex gap-3 text-[15px]"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-bold text-brand-dark">${i + 1}</span><span class="pt-0.5">${t}</span></li>`).join("");
-    $("contoh").innerHTML = [["Contoh tarik tunai", SITEPAT.tarikTunai], ["Contoh setor tunai", SITEPAT.setorTunai]].map(([t, d]) => `<div class="reveal card bg-brand-tint"><h3 class="font-display font-bold text-brand">${t}</h3><p class="mt-2 text-[15px] leading-relaxed">${d}</p></div>`).join("");
-    $("catatan").innerHTML = notice(SITEPAT.catatan);
-    $("disclaimer").innerHTML = notice(SITE.disclaimer);
-
-    // ===== Tab =====
-    const TABS = [["kel", "Pembiayaan Kelompok", "panelKel"], ["ind", "TPSIK (Individu Komunitas)", "panelInd"]];
-    function show(w) {
-      TABS.forEach(([k, , p]) => $(p).classList.toggle("hidden", k !== w));
-      $("tabs").innerHTML = TABS.map(([k, l]) => `<button data-t="${k}" class="rounded-xl px-5 py-3 text-sm font-bold transition ${k === w ? "bg-brand text-white" : "border-2 border-brand text-brand hover:bg-brand-tint"}">${l}</button>`).join("");
-      $("tabs").querySelectorAll("[data-t]").forEach((b) => (b.onclick = () => { show(b.dataset.t); history.replaceState(null, "", b.dataset.t === "ind" ? "#tpsik" : "#kelompok"); }));
-    }
-    function fromHash() {
-      const h = location.hash; show(h === "#tpsik" ? "ind" : "kel");
-      if (h === "#kalkulator" || h === "#sitepat" || h === "#tpsik") setTimeout(() => { const e = document.querySelector(h); if (e) e.scrollIntoView(); }, 50);
-    }
-    addEventListener("hashchange", fromHash); fromHash();
+    // Syarat + langkah + manfaat + risiko
+    $("cSyarat").innerHTML = secHead("Syarat", "Siapa yang dapat mengajukan?") + `<div class="reveal card mt-8">${checkList(TEPAT.syarat)}</div>`;
+    $("cLangkah").innerHTML = secHead("Cara Mengajukan", "Lima langkah sampai pembiayaan cair.") +
+      `<ol class="mt-8 space-y-5">${TEPAT.langkah.map(([t, d], i) => `<li class="reveal flex gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand font-display font-bold text-white">${i + 1}</span><div class="pt-0.5"><h3 class="font-bold">${t}</h3><p class="mt-1 text-[15px] leading-relaxed text-ink/80">${d}</p></div></li>`).join("")}</ol>`;
+    $("hManfaat").innerHTML = secHead("Manfaat & Risiko", "Perlindungan dan pendampingan, bukan hanya modal.");
+    $("manfaatList").innerHTML = `<div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">${TEPAT.manfaat.map(([t, d], i) => `<div class="reveal card"><div class="icon-box font-display text-lg font-bold">${i + 1}</div><h3 class="mt-4 font-display font-bold text-brand">${t}</h3><p class="mt-2 text-[15px] leading-relaxed">${d}</p></div>`).join("")}</div>`;
+    $("risiko").innerHTML = `<h3 class="font-display text-lg font-bold text-brand">Hal yang perlu Anda ketahui</h3><div class="mt-4">${TEPAT.risiko.map((t) => `<p class="flex gap-3 border-b border-slate-100 py-3 text-[15px] leading-relaxed last:border-0">${I.warn}<span>${t}</span></p>`).join("")}</div>`;
+    $("catatan").innerHTML = notice(SITE.disclaimer);
 
     reveal();
   </script>
